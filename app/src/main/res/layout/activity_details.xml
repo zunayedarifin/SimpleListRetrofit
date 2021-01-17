@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools">
+
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/primary_gray"
+        android:gravity="bottom"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/llChamberToolbar"
+            layout="@layout/custom_add_toolbar" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/llChamberToolbar"
+            android:background="@drawable/body_white_round_shadow"
+            tools:context=".activity.MainActivity">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".activity.MainActivity">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/ivProfileToolbar"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_centerHorizontal="true"
+                    tools:src="@mipmap/ic_launcher_round" />
+
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="28sp"
+                    android:textAlignment="center"
+                    android:layout_below="@+id/ivProfileToolbar"
+                    tools:text="name"/>
+
+                <TextView
+                    android:id="@+id/email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textAlignment="center"
+                    android:layout_below="@+id/name"
+                    tools:text="email"/>
+
+                <TextView
+                    android:id="@+id/gender"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textAlignment="center"
+                    android:layout_below="@+id/email"
+                    tools:text="gender"/>
+
+                <TextView
+                    android:id="@+id/status"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textAlignment="center"
+                    android:layout_below="@+id/gender"
+                    tools:text="status"/>
+                <TextView
+                    android:id="@+id/created"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textAlignment="center"
+                    android:layout_below="@+id/status"
+                    tools:text="created"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</FrameLayout>
+</layout>
+
+
+
