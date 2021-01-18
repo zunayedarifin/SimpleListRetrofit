@@ -2,8 +2,6 @@ package com.example.rmltest.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.provider.ContactsContract;
-import android.service.autofill.UserData;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -14,17 +12,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.rmltest.R;
 import com.example.rmltest.activity.DetailsActivity;
 import com.example.rmltest.databinding.CallListAdapterBinding;
-import com.example.rmltest.model.DataItem;
+import com.example.rmltest.model.dekur.MessageItem;
+import com.example.rmltest.model.users.DataItem;
 
 import java.util.ArrayList;
 
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.CallHolder> {
 
     private Context mContext;
-    private ArrayList<DataItem> dataArrayList;
+    private ArrayList<MessageItem> dataArrayList;
     private LayoutInflater layoutInflater;
 
-    public UserAdapter(Context mContext, ArrayList<DataItem> forumsData) {
+    public UserAdapter(Context mContext, ArrayList<MessageItem> forumsData) {
         this.mContext = mContext;
         this.dataArrayList = forumsData;
     }
@@ -47,7 +46,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.CallHolder> {
     @Override
     public void onBindViewHolder(@NonNull CallHolder itemView, final int position) {
 
-        DataItem data = dataArrayList.get(position);
+        MessageItem data = dataArrayList.get(position);
 
         itemView.binding.tvDoctorName.setText(data.getName());
 

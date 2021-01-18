@@ -1,7 +1,7 @@
-package com.example.rmltest.model;
+package com.example.rmltest.model.users;
 
 import java.util.ArrayList;
-import java.util.List;
+
 import com.google.gson.annotations.SerializedName;
 
 public class UserResponse{

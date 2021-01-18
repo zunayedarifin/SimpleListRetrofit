@@ -19,6 +19,12 @@ public class Api {
         }
         return mOrkoInstance;
     }
+    public static ApiService getOrkoApiService(int i) {
+        if (mOrkoInstance == null) {
+            mOrkoInstance = getApiService("http://zerobracket.com:8000/");
+        }
+        return mOrkoInstance;
+    }
 
     public static ApiService getApiService(String baseUrl) {
         return new Api(baseUrl).createService(ApiService.class);

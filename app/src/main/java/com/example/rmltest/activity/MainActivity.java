@@ -41,8 +41,8 @@ public class MainActivity extends AppBaseActivity {
             finish();
         });
         layoutManager = new LinearLayoutManager(mContext);
-        viewModel.userDetails().observe(this, userResponse -> {
-            adapter = new UserAdapter(mContext,userResponse.getData());
+        viewModel.dekurUserList().observe(this, userResponse -> {
+            adapter = new UserAdapter(mContext,userResponse.getMessage());
             binding.recyclerView.setLayoutManager(layoutManager);
             binding.recyclerView.setAdapter(adapter);
         });

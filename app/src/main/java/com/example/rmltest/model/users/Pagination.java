@@ -1,4 +1,4 @@
-package com.example.rmltest.model;
+package com.example.rmltest.model.users;
 
 import com.google.gson.annotations.SerializedName;
 

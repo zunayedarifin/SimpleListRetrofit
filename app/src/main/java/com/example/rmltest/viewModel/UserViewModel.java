@@ -6,7 +6,8 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
-import com.example.rmltest.model.UserResponse;
+import com.example.rmltest.model.dekur.DekurUserResponse;
+import com.example.rmltest.model.users.UserResponse;
 import com.example.rmltest.repository.UserRepository;
 
 public class UserViewModel extends AndroidViewModel {
@@ -21,6 +22,9 @@ public class UserViewModel extends AndroidViewModel {
 
     public LiveData<UserResponse> userDetails() {
         return repository.userDetails();
+    }
+    public LiveData<DekurUserResponse> dekurUserList() {
+        return repository.dekurUserDetails();
     }
 
 }

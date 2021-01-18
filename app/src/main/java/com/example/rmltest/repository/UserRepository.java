@@ -1,10 +1,9 @@
 package com.example.rmltest.repository;
 
-import android.util.Log;
-
 import androidx.lifecycle.MutableLiveData;
 
-import com.example.rmltest.model.UserResponse;
+import com.example.rmltest.model.dekur.DekurUserResponse;
+import com.example.rmltest.model.users.UserResponse;
 import com.example.rmltest.network.Api;
 import com.example.rmltest.network.ApiService;
 
@@ -37,6 +36,36 @@ public class UserRepository {
 
             @Override
             public void onFailure(Call<UserResponse> call, Throwable t) {
+                isUpdated.setValue(false);
+
+            }
+        });
+
+        return liveData;
+
+    }
+
+    public MutableLiveData<DekurUserResponse> dekurUserDetails() {
+
+        MutableLiveData<DekurUserResponse> liveData = new MutableLiveData<>();
+
+        final ApiService apiReader = Api.getOrkoApiService(1);
+        isUpdated.setValue(true);
+
+        Call<DekurUserResponse> list = apiReader.getDekurUserList();
+
+        list.enqueue(new Callback<DekurUserResponse>() {
+            @Override
+            public void onResponse(Call<DekurUserResponse> call, Response<DekurUserResponse> response) {
+                if (response.isSuccessful()) {
+                    assert response.body() != null;
+                    liveData.postValue(response.body());
+                    isUpdated.setValue(false);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<DekurUserResponse> call, Throwable t) {
                 isUpdated.setValue(false);
 
             }

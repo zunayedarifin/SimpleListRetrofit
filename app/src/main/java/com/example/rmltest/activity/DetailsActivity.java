@@ -9,8 +9,10 @@ import android.os.Bundle;
 
 import com.example.rmltest.R;
 import com.example.rmltest.databinding.ActivityDetailsBinding;
-import com.example.rmltest.model.DataItem;
+import com.example.rmltest.model.dekur.MessageItem;
+import com.example.rmltest.model.users.DataItem;
 import com.example.rmltest.shared_preference.AppPrefsManager;
+import com.squareup.picasso.Picasso;
 
 public class DetailsActivity extends AppCompatActivity {
 
@@ -25,13 +27,13 @@ public class DetailsActivity extends AppCompatActivity {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_details);
         mContext=this;
         appPrefsManager = new AppPrefsManager(mContext);
-        DataItem dataItem = (DataItem) getIntent().getSerializableExtra("user_data");
+        MessageItem dataItem = (MessageItem) getIntent().getSerializableExtra("user_data");
         if (dataItem != null) {
             binding.name.setText(dataItem.getName());
-            binding.email.setText(dataItem.getEmail());
-            binding.gender.setText(dataItem.getGender());
-            binding.status.setText(dataItem.getStatus());
-            binding.created.setText(dataItem.getCreatedAt());
+            binding.email.setText(dataItem.getNumber());
+            binding.gender.setText(dataItem.getBirthDay());
+//            binding.status.setText(dataItem.getStatus());
+//            binding.created.setText(dataItem.getCreatedAt());
         }
         binding.llChamberToolbar.ivCustomBack.setOnClickListener(view -> {
             startActivity(new Intent(this, MainActivity.class));
@@ -42,5 +44,9 @@ public class DetailsActivity extends AppCompatActivity {
             appPrefsManager.setIsLogin(false);
             finish();
         });
+        Picasso.get().load(dataItem.getImage()).placeholder(R.drawable.ic_placeholder   )
+                .fit()
+                .centerCrop()
+                .into(binding.ivProfileToolbar);
     }
 }
